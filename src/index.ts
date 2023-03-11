@@ -9,8 +9,8 @@ fileCheck();
 
 function fileCheck(): void {
   if (!filename) throw new Error("Arquivo inválido.");
-  if (filename.split(".")[filename.split(".").length - 1] != "spl")
-    throw new Error("Arquivo não .spl");
+  if (filename.split(".")[filename.split(".").length - 1] != "sp")
+    throw new Error("Arquivo não .sp");
 }
 
 let arquivo = fs.readFileSync(filename);
