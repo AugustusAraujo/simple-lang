@@ -1,4 +1,4 @@
-import { Token } from "./types/Itoken";
+import { Token } from "./types/IToken";
 
 export class Parser {
   parseTokens(tokens: Token[]) {
@@ -10,6 +10,6 @@ export class Parser {
       }
     });
 
-    return code;
+    return code.toString();
   }
 }

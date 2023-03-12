@@ -1,11 +1,14 @@
 {
-  "name": "simple-lang",
+  "name": "slimpel-lang",
   "version": "1.0.0",
   "description": "A simple lang",
   "main": "index.js",
-  "repository": "https://github.com/AugustusAraujo/simple-lang.git",
+  "repository": "https://github.com/AugustusAraujo/slimpel-lang.git",
   "author": "AugustusAraujo <augustusaraujo13@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "@types/node": "^18.15.0"
   }

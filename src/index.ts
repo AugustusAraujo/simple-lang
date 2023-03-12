@@ -1,26 +1,27 @@
 import { argv } from "process";
 import * as fs from "fs";
-import { Lexer } from "./lexer";
+import { Lexer } from "./lexer/lexer";
 import { Parser } from "./parser";
 
 const filename = argv[2];
 
-fileCheck();
+if (!filename) throw new Error("Arquivo inválido.");
+if (filename.split(".")[filename.split(".").length - 1] != "sp")
+  throw new Error("Arquivo não .sp");
 
-function fileCheck(): void {
-  if (!filename) throw new Error("Arquivo inválido.");
-  if (filename.split(".")[filename.split(".").length - 1] != "sp")
-    throw new Error("Arquivo não .sp");
-}
+let data = fs.readFileSync(filename).toString().trim();
 
-let arquivo = fs.readFileSync(filename);
+let phrases = data
+  .split(";")
+  .filter((i) => i != "")
+  .map((i) => i.trimStart());
 
-let data = arquivo.toString().trim()
+const lexer = new Lexer();
 
-const tokens = [];
+const tokens = lexer.lexData(phrases);
 
-tokens.push(new Lexer().lexData(data.split(' ')));
+console.log(tokens);
 
-console.log(tokens)
+const parser = new Parser();
 
-console.log(new Parser().parseTokens(tokens))
+eval(parser.parseTokens(tokens));
