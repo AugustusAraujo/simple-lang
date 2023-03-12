@@ -1,2 +1,2 @@
 # slimpel
-Uma simples linguagem de programacao que não faz nada.
+### Uma linguagem de programação que não faz nada 😎.
