@@ -1,4 +1,4 @@
 export interface Token  {
-    ordem: string
+    ordem: any
     valor: any
 }
